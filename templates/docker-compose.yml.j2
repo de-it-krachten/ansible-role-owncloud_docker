@@ -1,0 +1,93 @@
+version: "3"
+
+volumes:
+  files:
+    driver: local
+  mysql:
+    driver: local
+  redis:
+    driver: local
+
+services:
+  owncloud:
+    image: owncloud/server:${OWNCLOUD_VERSION}
+    # container_name: owncloud_server
+    restart: always
+    # ports:
+    #   - ${HTTP_PORT}:8080
+    depends_on:
+      - mariadb
+      - redis
+    environment:
+      - OWNCLOUD_DOMAIN=${OWNCLOUD_DOMAIN}
+      - OWNCLOUD_TRUSTED_DOMAINS=${OWNCLOUD_TRUSTED_DOMAINS}
+      - OWNCLOUD_DB_TYPE=${DB_TYPE}
+      - OWNCLOUD_DB_NAME=${DB_NAME}
+      - OWNCLOUD_DB_USERNAME=${DB_USER}
+      - OWNCLOUD_DB_PASSWORD=${DB_PASSWORD}
+      - OWNCLOUD_DB_HOST=${DB_HOST}
+      - OWNCLOUD_ADMIN_USERNAME=${ADMIN_USERNAME}
+      - OWNCLOUD_ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - OWNCLOUD_MYSQL_UTF8MB4=true
+      - OWNCLOUD_REDIS_ENABLED=true
+      - OWNCLOUD_REDIS_HOST=redis
+
+    healthcheck:
+      test: ["CMD", "/usr/bin/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - files:/mnt/data
+
+  mariadb:
+    image: mariadb:10.6 # minimum required ownCloud version is 10.9
+    # container_name: owncloud_mariadb
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    command: ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "root", "--password=${DB_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - mysql:/var/lib/mysql
+
+  redis:
+    image: redis:6
+    # container_name: owncloud_redis
+    restart: always
+    command: ["--databases", "1"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - redis:/data
+
+{% if owncloud_nginx | bool %}
+  webserver:
+    image: nginx:alpine
+    # container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "{{ owncloud_https_port | default('443') }}:443"
+      - "{{ owncloud_http_port | default('80') }}:80"
+    depends_on:
+      - owncloud
+    links:
+      - owncloud
+    volumes:
+      # - ./www:/var/www/html
+      - ./nginx-owncloud.conf:/etc/nginx/conf.d/owncloud.conf:ro
+      - ./nginx-default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx-ssl.conf:/etc/nginx/conf.d/options-ssl-nginx.conf:ro
+      - ./fullchain.pem:/etc/nginx/certs/fullchain.pem:ro
+      - ./privkey.pem:/etc/nginx/certs/privkey.pem:ro
+{% endif %}

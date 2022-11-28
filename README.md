@@ -1,10 +1,9 @@
-[![CI](https://github.com/de-it-krachten/ansible-role-ownload_docker/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/ansible-role-ownload_docker/actions?query=workflow%3ACI)
+[![CI](https://github.com/de-it-krachten/ansible-role-owncloud_docker/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/ansible-role-owncloud_docker/actions?query=workflow%3ACI)
 
 
-# ansible-role-ownload_docker
+# ansible-role-owncloud_docker
 
-Sets up a Wordpress instance using Docker.<br>
-This consists of Wordpress/PHP/MySQL/nginx<br>
+Sets up a Owncloud using Docker
 
 
 
@@ -45,12 +44,36 @@ Note:
 ## Role Variables
 ### defaults/main.yml
 <pre><code>
-# Retrieve SSL certificate from let's encrypt
-ownload_certbot: true
+# FQDN of the owncloud server
+owncloud_fqdn: owncloud.example.com
 
-# Custom SSL certificate
-# ownload_ssl_key: /path/to/key
-# ownload_ssl_certificate_chain: /path/to/certificate/chain
+# Owncloud port
+owncloud_port: 8080
+
+# Owncloud admin user + password
+owncloud_admin_username: admin
+owncloud_admin_password: admin
+
+# Database type to use
+owncloud_db_type: mysql
+
+# Databae root password
+owncloud_db_root_password: owncloud
+
+# Name of the database server
+owncloud_db_host: mariadb
+
+# Name of the database itself
+owncloud_db_name: owncloud
+
+# Name of the database user
+owncloud_db_user: owncloud
+
+# Password for the database user
+owncloud_db_password: owncloud
+
+# Server for nginx to connect to
+owncloud_webapp_host: owncloud
 </pre></code>
 
 
@@ -59,27 +82,15 @@ ownload_certbot: true
 ## Example Playbook
 ### molecule/default/converge.yml
 <pre><code>
-- name: sample playbook for role 'ownload_docker'
+- name: sample playbook for role 'owncloud_docker'
   hosts: all
   become: "yes"
   vars:
-    mysql_root_password: ownload
-    mysql_user: ownload
-    mysql_password: ownload
-    mysql_database: ownload
-    ownload_certbot: False
-    ownload_domain: example.com
-    ownload_docker_data: /export/docker/ownload
-    ownload_db_name: ownload
-    ownload_db_user: ownload
-    ownload_db_pwd: ownload
-    letsencrypt_email: "info@{{ ownload_domain }}"
-    letsencrypt_domain: "{{ ownload_domain }}"
-    letsencrypt_domains: "{{ [ ownload_domain ] }}"
+    owncloud_docker_data: /export/docker/owncloud
   roles:
     - openssl
   tasks:
-    - name: Include role 'ownload_docker'
+    - name: Include role 'owncloud_docker'
       ansible.builtin.include_role:
-        name: ownload_docker
+        name: owncloud_docker
 </pre></code>

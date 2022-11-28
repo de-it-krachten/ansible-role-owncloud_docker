@@ -1,0 +1,13 @@
+---
+
+- name: Converge
+  hosts: all
+  become: "yes"
+  vars:
+    owncloud_docker_data: /export/docker/owncloud
+  roles:
+    - openssl
+  tasks:
+    - name: Include role 'ansible-role-owncloud_docker'
+      ansible.builtin.include_role:
+        name: ansible-role-owncloud_docker
