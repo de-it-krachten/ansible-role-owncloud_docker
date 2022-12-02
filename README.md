@@ -47,6 +47,9 @@ Note:
 # FQDN of the owncloud server
 owncloud_fqdn: owncloud.example.com
 
+# Include nginx webserver
+owncloud_nginx: false
+
 # Owncloud port
 owncloud_port: 8080
 
