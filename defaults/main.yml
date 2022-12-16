@@ -1,0 +1,35 @@
+---
+
+# FQDN of the owncloud server
+owncloud_fqdn: owncloud.example.com
+
+# Include nginx webserver
+owncloud_nginx: false
+
+# Owncloud port
+owncloud_port: 8080
+
+# Owncloud admin user + password
+owncloud_admin_username: admin
+owncloud_admin_password: admin
+
+# Database type to use
+owncloud_db_type: mysql
+
+# Databae root password
+owncloud_db_root_password: owncloud
+
+# Name of the database server
+owncloud_db_host: mariadb
+
+# Name of the database itself
+owncloud_db_name: owncloud
+
+# Name of the database user
+owncloud_db_user: owncloud
+
+# Password for the database user
+owncloud_db_password: owncloud
+
+# Server for nginx to connect to
+owncloud_webapp_host: owncloud
