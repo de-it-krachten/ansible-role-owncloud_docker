@@ -14,7 +14,6 @@ None
 
 #### Collections
 - community.general
-- community.general
 
 ## Platforms
 
