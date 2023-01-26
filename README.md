@@ -92,7 +92,7 @@ owncloud_webapp_host: owncloud
   vars:
     owncloud_docker_data: /export/docker/owncloud
   roles:
-    - openssl
+    - deitkrachten.openssl
   tasks:
     - name: Include role 'owncloud_docker'
       ansible.builtin.include_role:
