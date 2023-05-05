@@ -6,7 +6,7 @@
   vars:
     owncloud_docker_data: /export/docker/owncloud
   roles:
-    - openssl
+    - deitkrachten.openssl
   tasks:
     - name: Include role 'ansible-role-owncloud_docker'
       ansible.builtin.include_role:
