@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.1.0...v1.2.0) (2023-09-18)
+
+
+### Features
+
+* Update supported platforms & CI ([5efcdf5](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/5efcdf59924a3f99b450a457078cf58f3fc1c072))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.0.0...v1.1.0) (2023-05-06)
 
 
