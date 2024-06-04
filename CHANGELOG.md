@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.2.0...v1.3.0) (2024-06-04)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([7cd5934](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/7cd5934b5bf23c40b04640dd1590005ee9344219))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.1.0...v1.2.0) (2023-09-18)
 
 
