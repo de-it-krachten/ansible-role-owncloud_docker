@@ -1,3 +1,14 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.4.0...v1.5.0) (2025-09-03)
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([3e29ce4](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/3e29ce4cfb047cd664e040d9525e972898caf35d))
+* Add support for Debian 13 (Trixie) ([048a6b4](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/048a6b42d6215cab7f9675319983471f345ee4bb))
+* Add support for OracleLinux 10 ([733b5b8](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/733b5b8eb1d13fde4bb54f9e8534f3cbf482a222))
+* Add support for Red Hat Enterprise Linux 10 ([4c65de8](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/4c65de8d1c9fe02ac0b23ab1937706ce72e25130))
+* Add support for RockyLinux 10 ([fca2e0d](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/fca2e0d68dec33422c6651d58dc522cb2a2a64d5))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.3.0...v1.4.0) (2024-12-29)
 
 
