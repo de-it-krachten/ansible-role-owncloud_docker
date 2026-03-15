@@ -4,6 +4,7 @@
   hosts: all
   become: "yes"
   vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
     owncloud_docker_data: /export/docker/owncloud
   roles:
     - deitkrachten.openssl
