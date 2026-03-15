@@ -1,3 +1,14 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.5.0...v1.6.0) (2026-03-15)
+
+
+### Features
+
+* Added support for Fedora 43 ([8c7c830](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/8c7c830827397e4bda44075f5c010750c0ba0f64))
+* Drop support for Debian 10 (Buster) ([e4eb1a9](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/e4eb1a9c2dffc32a00afe7e1b1d5e76a20469302))
+* Drop support for Fedora 41 ([22207b2](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/22207b2747a0e813ae1b9150889d291820374c98))
+* Drop support for openSUSE Leap 15 ([2c816ff](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/2c816ffcb8881d4346caefee78a11fb5856a2f79))
+* Drop support for SUSE Linux Enterprise 15 ([63dbdd9](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/63dbdd9eba2f51cceb60fb32b3c97201c71a7649))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.4.0...v1.5.0) (2025-09-03)
 
 
