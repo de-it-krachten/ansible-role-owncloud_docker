@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.6.0...v1.7.0) (2026-07-26)
+
+
+### Features
+
+* Added support for Fedora 44 ([ecd37ee](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/ecd37eec0d962de4968e6b5a512ba2690b8e51e4))
+* Added support for Ubuntu 26.04 LTS ([4e812ac](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/4e812ac75081d45b80a9cf190a739601e7c0c7d9))
+* Drop support for Fedora 42 ([6019c41](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/6019c41025ac217bff8e9244b3b0bf59c5b2e326))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.5.0...v1.6.0) (2026-03-15)
 
 
