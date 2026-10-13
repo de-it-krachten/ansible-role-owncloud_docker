@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.7.0...v1.8.0) (2026-10-13)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([9f25a2b](https://github.com/de-it-krachten/ansible-role-owncloud_docker/commit/9f25a2b4b7dc981eeec8db3a6ff9617be1d1ca60))
+
 # [1.7.0](https://github.com/de-it-krachten/ansible-role-owncloud_docker/compare/v1.6.0...v1.7.0) (2026-07-26)
 
 
